@@ -1,5 +1,5 @@
-const register = require('./functions/Register');
-const login = require('./functions/Login');
+const register = require('./functions/register');
+const login = require('./functions/forgotpassword');
 const forgotpassword = require('./functions/forgotpassword');
 const middlewareFunctions = require('./functions/middlewareFunctions');
 
