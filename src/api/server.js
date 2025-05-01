@@ -8,7 +8,7 @@ const http = require('http');
 
 // Load environment variables
 dotenv.config();
-app.use(cors());
+// app.use(cors());
 
 // Internal Modules
 const dbConnect = require('../config/dbConnection');
