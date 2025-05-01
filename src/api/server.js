@@ -1,12 +1,14 @@
 // External Modules
 const express = require('express');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const ApiError = require('../util/APIError');
 const globalError = require('../middleware/errormiddleware');
 const http = require('http');
 
 // Load environment variables
 dotenv.config();
+app.use(cors());
 
 // Internal Modules
 const dbConnect = require('../config/dbConnection');
