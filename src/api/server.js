@@ -8,7 +8,6 @@ const http = require('http');
 
 // Load environment variables
 dotenv.config();
-// app.use(cors());
 
 // Internal Modules
 const dbConnect = require('../config/dbConnection');
@@ -22,6 +21,7 @@ const notificationRoutes = require("../modules/notification/router/notification.
 
 // App Initialization
 const app = express();
+app.use(cors());
 
 // Connect to MongoDB
 dbConnect();
