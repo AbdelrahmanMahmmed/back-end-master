@@ -34,6 +34,12 @@ const User = new mongoose.Schema({
         enum: ['doctor', 'user' , 'admin'],
         default: 'user'
     },
+    articles: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Article'
+        }
+    ],
     isVerified: {
         type: Boolean,
         default: false

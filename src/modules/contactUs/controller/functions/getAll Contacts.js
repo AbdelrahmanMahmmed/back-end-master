@@ -5,12 +5,11 @@ const asyncHandler = require('express-async-handler')
 
 
 /**
- * @desc    Create a new contact entry
- * @route   POST /create
+ * @desc    Get all contact entries
+ * @route   GET /getall
  * @access  Private
  */
-const createContact = asyncHandler(async (req, res) => {
-    const {massage} = req.body;
+const getallContacts = asyncHandler(async (req, res) => {
     const userId = req.user._id;
 
     // Check if the user exists
@@ -19,21 +18,15 @@ const createContact = asyncHandler(async (req, res) => {
         throw new ApiError(404, 'User not found');
     }
 
-    // Create a new contact entry
-    const contact = new Contact({
-        name : user.name,
-        email : user.email,
-        message : massage,
-    });
+    // Get all contact entries
+    const contacts = await Contact.find({});
 
-    await contact.save();
-
-    res.status(201).json({
+    res.status(200).json({
         status: 'success',
         data: {
-            contact,
+            contacts,
         },
     });
 })
 
-module.exports = createContact;
+module.exports = getallContacts;

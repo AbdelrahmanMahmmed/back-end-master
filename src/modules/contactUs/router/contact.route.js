@@ -16,4 +16,9 @@ router.post('/create',
     contactController.createContact
 );
 
+router.get('/', 
+    middlewareFunctions.ProtectedRoters,
+    contactController.getallContacts
+);
+
 module.exports = router;

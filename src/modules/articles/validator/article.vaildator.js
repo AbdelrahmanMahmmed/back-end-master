@@ -12,3 +12,13 @@ exports.CreateArticleValidator = [
     ,
     validatorsMiddleware,
 ];
+
+exports.updatedArticleValidator = [
+    body("title")
+        .optional()
+    ,
+    body("description")
+        .optional()
+    ,
+    validatorsMiddleware,
+];

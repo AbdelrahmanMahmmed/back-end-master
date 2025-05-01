@@ -23,11 +23,16 @@ const createArticle = asyncHandler(async (req, res) => {
     }
 
     const article = new Article({
+        user : userId,
         title, 
         description
     });
 
     await article.save();
+
+    // Add the article to the user's articles array
+    user.articles.push(article._id);
+    await user.save();
 
     res.status(201).json({
         status: 'success',
