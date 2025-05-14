@@ -24,7 +24,16 @@ const Login = asyncHandler(async (req, res) => {
         maxAge: process.env.COOKIE_EXPIRES_TIME,
         sameSite: "Lax"
     });
-    res.json({ token });
+    res.json({ 
+        token,
+        user: {
+            id: user._id,
+            handle : user.handle,
+            name: user.name,
+            email: user.email,
+            role: user.role
+        }
+    });
 });
 
 module.exports = Login ;
